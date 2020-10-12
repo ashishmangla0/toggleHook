@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-
+import Image from './images';
 function App() {
+  const [title,setTitle] = useState('Hello React');
+  const [isShowing,setIsShowing] =  useState(false);
+
+  useEffect(()=>{
+    console.log("app mounted");
+  },[]);
+
+  const handleClick = () =>{
+    setIsShowing(!isShowing);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+    {console.log("re renderd")}
+      {title}
+      <button onClick={handleClick}>
+              Toggle img
+      </button>
+      {isShowing ? <Image/> : null}
+      
+    </div>   
   );
 }
 
