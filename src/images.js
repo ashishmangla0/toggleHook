@@ -27,19 +27,16 @@ import Image1 from './img1.jpg';
 
 
 const Image = () => {
-    const [datenow, setDateNow] = useState(null);
+    // const [datenow, setDateNow] = useState('');
     useEffect(() => {
-        
         console.log("image component mounte");
-        setDateNow(
-            setInterval(() => {
+        const intervel =setInterval(() => {
                 console.log(Date());
-            }, 1000)
-        );
+            }, 1000);
 
         return () => {
-            clearInterval(datenow);
-            console.log('impage unmount');
+            clearInterval(intervel);
+            console.log('image unmount');
             
         }
 
